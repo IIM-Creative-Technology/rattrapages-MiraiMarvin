@@ -1,48 +1,40 @@
 <script setup>
 import MainChoose from './components/MainChoose.vue'
-import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+ <section class="main">
+   <div class="left">
 
-    <div class="wrapper">
-      <MainChoose />
+   </div>
+   <div class="right">
+     <MainChoose />
 
-    </div>
-  </header>
+   </div>
+ </section>
 
-  <main>
-    <TheWelcome />
-  </main>
+
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+
+main{
+  width: 100%;
+  height: 100vh;
+  border: 2px solid #181818;
+  padding: 20px;
+}
+.left{
+  width: 30%;
+  height: 100%;
+  border: 2px solid #181818;
+  float: left;
+}
+.right{
+  width: 70%;
+  height: 100%;
+  border: 2px solid #181818;
+  float: right;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>

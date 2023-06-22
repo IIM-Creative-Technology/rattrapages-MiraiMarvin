@@ -20,11 +20,10 @@
       </div>
       <div>
         <label for="salad">Base de salade:</label>
-        <select id="salad" v-model="formData.saladBase">
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select>
+        <div v-for="saladbase in saladBase" :key="saladBase.id">
+          <input type="checkbox" :id="saladbase.id" :value="saladbase.name" v-model="formData.SaladBase">
+          <label :for="saladbase.id">{{ saladbase.name }}</label>
+        </div>
       </div>
       <div>
         <label for="ingredients">Ingrédients:</label>
@@ -39,8 +38,6 @@
           <option value="drink1">Boisson 1</option>
           <option value="drink2">Boisson 2</option>
           <option value="drink3">Boisson 3</option>
-          <option value="drink4">Boisson 4</option>
-          <option value="drink5">Boisson 5</option>
         </select>
       </div>
       <button type="submit">Envoyer</button>
@@ -57,15 +54,30 @@ export default {
         address: '',
         firstName: '',
         age: null,
-        saladBase: '',
+        SaladBase: [],
         selectedIngredients: [],
-        drink: '',
+        drink: [],
       },
+
+      saladBase: [
+        { id: '10', name: 'riz', prix: 2.5 },
+        { id: '11', name: 'pates', prix: 2.5 },
+        { id: '12', name: 'Salade', prix: 2.5 },
+      ],
+
       ingredients: [
-        { id: 'ingredient1', name: 'Ingrédient 1' },
-        { id: 'ingredient2', name: 'Ingrédient 2' },
-        { id: 'ingredient3', name: 'Ingrédient 3' },
-        { id: 'ingredient4', name: 'Ingrédient 4' },
+        { id: '1', name: 'grenade', prix: 1.5 },
+        { id: '2', name: 'cheese', prix: 2.5 },
+        { id: '3', name: 'melon', prix: 4.5 },
+        { id: '4', name: 'tomate', prix: 0.5 },
+        { id: '5', name: 'oeuf', prix: 3.5 },
+        { id: '6', name: 'jambon', prix: 3.5 },
+      ],
+
+      drinks: [
+        { id: '7', name: 'coka', prix: 1.5 },
+        { id: '8', name: 'orange juice', prix: 2.5 },
+        { id: '9', name: 'ice tea', prix: 4.5 },
       ],
     };
   },
