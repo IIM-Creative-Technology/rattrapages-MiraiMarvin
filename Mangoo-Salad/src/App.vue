@@ -5,6 +5,7 @@ import MainChoose from './components/MainChoose.vue'
 <template>
  <section class="main">
    <div class="left">
+     <h1>partie gauche</h1>
 
    </div>
    <div class="right">

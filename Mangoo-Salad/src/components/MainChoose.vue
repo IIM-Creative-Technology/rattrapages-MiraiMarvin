@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <h1>Formulaire</h1>
@@ -20,10 +21,9 @@
       </div>
       <div>
         <label for="salad">Base de salade:</label>
-        <div v-for="saladbase in saladBase" :key="saladBase.id">
-          <input type="checkbox" :id="saladbase.id" :value="saladbase.name" v-model="formData.SaladBase">
-          <label :for="saladbase.id">{{ saladbase.name }}</label>
-        </div>
+        <select id="salad"  v-model="formData.saladBase">
+          <option v-for="saladbase in saladBase" :value="saladbase.name">{{ saladbase.name }}</option>
+        </select>
       </div>
       <div>
         <label for="ingredients">Ingrédients:</label>
@@ -35,9 +35,7 @@
       <div>
         <label for="drink">Boisson:</label>
         <select id="drink" v-model="formData.drink">
-          <option value="drink1">Boisson 1</option>
-          <option value="drink2">Boisson 2</option>
-          <option value="drink3">Boisson 3</option>
+          <option v-for="drink in drinks" :value="drink.name">{{ drink.name }}</option>
         </select>
       </div>
       <button type="submit">Envoyer</button>
@@ -54,9 +52,10 @@ export default {
         address: '',
         firstName: '',
         age: null,
-        SaladBase: [],
+        SaladBase: '',
         selectedIngredients: [],
         drink: [],
+        prix: 0,
       },
 
       saladBase: [
