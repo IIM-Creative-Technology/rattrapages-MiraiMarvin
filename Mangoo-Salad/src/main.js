@@ -8,19 +8,27 @@ import Vuex from 'vuex';
 
 const store = new Vuex.Store({
     state: {
-        nom: '',
-        adresse: '',
-        prenom: '',
-        age: 0,
-        basesSalades: [],
-        ingredients: [],
-        boissons: [],
-        prix: 0,
+            formData: {
+                name: '',
+                address: '',
+                firstName: '',
+                age: null,
+                SaladBase: '',
+                selectedIngredients: [],
+                drink: [],
+                prix: 0,
+            },
     },
-    mutations: {},
+    mutations: {
+        updateFormData(state, formData) {
+            state.formData = formData;
+        },
+    },
     actions: {},
     modules: {},
-    getters: {},
+    getters: {
+        formDataS: (state) => state.formData,
+    },
 });
 
 createApp(App).use(store).mount('#app');

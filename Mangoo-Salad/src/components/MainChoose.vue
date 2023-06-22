@@ -80,11 +80,27 @@ export default {
       ],
     };
   },
+
   methods: {
     submitForm() {
-      // Envoyer les données du formulaire
-      console.log(this.formData);
-    },
+      // Appeler une mutation pour mettre à jour les données du store
+      this.$store.commit('updateFormData', this.formData);
+
+
+
+      // Réinitialiser les champs du formulaire
+      this.formData = {
+        name: '',
+        address: '',
+        firstName: '',
+        age: null,
+        saladBase: '',
+        selectedIngredients: [],
+        drink: '',
+        prix: 0,
+      };
+
   },
+},
 };
 </script>

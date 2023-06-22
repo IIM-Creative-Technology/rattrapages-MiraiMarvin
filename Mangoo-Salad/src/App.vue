@@ -1,11 +1,13 @@
 <script setup>
 import MainChoose from './components/MainChoose.vue'
+import TheCheck from "@/components/TheCheck.vue";
 </script>
 
 <template>
  <section class="main">
    <div class="left">
      <h1>partie gauche</h1>
+     <TheCheck />
 
    </div>
    <div class="right">
