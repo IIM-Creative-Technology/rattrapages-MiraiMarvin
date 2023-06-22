@@ -9,14 +9,14 @@ import Vuex from 'vuex';
 const store = new Vuex.Store({
     state: {
             formData: {
-                name: '',
-                address: '',
-                firstName: '',
-                age: null,
-                SaladBase: '',
-                selectedIngredients: [],
-                drink: [],
-                prix: 0,
+                name: 'marvin',
+                address: 'quoicoubaka',
+                firstName: 'clerc',
+                age: 20,
+                SaladBase: 'salade',
+                selectedIngredients: ['jambon','fruit','legume'],
+                drink: ['coka'],
+                prix: 10,
             },
     },
     mutations: {
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
     actions: {},
     modules: {},
     getters: {
-        formDataS: (state) => state.formData,
+        formData: (state) => state.formData,
     },
 });
 
