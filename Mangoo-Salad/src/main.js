@@ -8,16 +8,16 @@ import Vuex from 'vuex';
 
 const store = new Vuex.Store({
     state: {
-            formData: {
-                name: 'marvin',
-                address: 'quoicoubaka',
-                firstName: 'clerc',
-                age: 20,
-                SaladBase: 'salade',
-                selectedIngredients: ['jambon','fruit','legume'],
-                drink: ['coka'],
-                prix: 10,
-            },
+        formData: {
+            name: '',
+            address: '',
+            firstName: '',
+            age: null,
+            SaladBase: '',
+            selectedIngredients: [],
+            drink: [],
+            prix: 0,
+        },
     },
     mutations: {
         updateFormData(state, formData) {

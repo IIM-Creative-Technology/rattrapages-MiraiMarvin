@@ -3,8 +3,11 @@
 <template>
 
     <div>
-      <h1>État du store</h1>
-      <p>formData: {{ formData }}</p>
+      <h1>dernière commande</h1>
+      <p>la commande de {{ formData.name }}</p>
+      <p> salade a base de  {{ formData.SaladBase}}</p>
+      <p> avec les ingrédients suivant {{ formData.selectedIngredients}}</p>
+      <p> et une boisson {{ formData.drink}}</p>
     </div>
 </template>
 

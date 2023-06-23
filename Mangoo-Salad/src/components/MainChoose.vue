@@ -28,7 +28,7 @@
       <div>
         <label for="ingredients">Ingrédients:</label>
         <div v-for="ingredient in ingredients" :key="ingredient.id">
-          <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="formData.selectedIngredients">
+          <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="formData.selectedIngredients" @change="handleCheckboxChange">
           <label :for="ingredient.id">{{ ingredient.name }}</label>
         </div>
       </div>
@@ -40,6 +40,12 @@
       </div>
       <button type="submit">Envoyer</button>
     </form>
+  </div>
+  <div>
+    <h2>Bonjour , {{formData.name}}</h2>
+    <p>
+      vous avez choisi une salade a base de {{formData.saladBase}} avec les ingrédients suivant {{formData.selectedIngredients}} et une boisson {{formData.drink}}
+    </p>
   </div>
 </template>
 
@@ -82,6 +88,13 @@ export default {
   },
 
   methods: {
+    handleCheckboxChange() {
+      if (this.formData.selectedIngredients.length > 4) { // Changer le nombre maximum de choix ici
+        // Limitez le nombre de choix en décochant la dernière option sélectionnée
+        this.formData.selectedIngredients.pop();
+      }
+    },
+
     submitForm() {
       // Appeler une mutation pour mettre à jour les données du store
       this.$store.commit('updateFormData', this.formData);
@@ -101,6 +114,7 @@ export default {
       };
 
   },
+
 },
 };
 </script>
