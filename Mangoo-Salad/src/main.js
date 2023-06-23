@@ -15,7 +15,7 @@ const store = new Vuex.Store({
             age: null,
             SaladBase: '',
             selectedIngredients: [],
-            drink: [],
+            drink: '',
             prix: 0,
         },
     },

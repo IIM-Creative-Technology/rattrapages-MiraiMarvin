@@ -1,5 +1,18 @@
+<script setup>
+import TheCheck from "@/components/TheCheck.vue";
+
+</script>
+
 
 <template>
+  <TheCheck />
+  <div>
+    <h2>Bonjour , {{formData.firstName}}</h2>
+    <p>
+      vous avez choisi une salade a base de {{formData.saladBase}} avec les ingrédients suivant {{formData.selectedIngredients}} et un {{formData.drink}}
+    </p>
+  </div>
+
   <div>
     <h1>Formulaire</h1>
     <form @submit.prevent="submitForm">
@@ -8,13 +21,14 @@
         <input type="text" id="name" v-model="formData.name" required>
       </div>
       <div>
-        <label for="address">Adresse:</label>
-        <input type="text" id="address" v-model="formData.address" required>
-      </div>
-      <div>
         <label for="firstName">Prénom:</label>
         <input type="text" id="firstName" v-model="formData.firstName" required>
       </div>
+      <div>
+        <label for="address">Adresse:</label>
+        <input type="text" id="address" v-model="formData.address" required>
+      </div>
+
       <div>
         <label for="age">Âge:</label>
         <input type="number" id="age" v-model="formData.age" required>
@@ -22,31 +36,26 @@
       <div>
         <label for="salad">Base de salade:</label>
         <select id="salad"  v-model="formData.saladBase">
-          <option v-for="saladbase in saladBase" :value="saladbase.name">{{ saladbase.name }}</option>
+          <option v-for="saladbase in saladBase" :value="saladbase.name">{{ saladbase.name }}, +{{saladbase.prix}}$</option>
         </select>
       </div>
       <div>
         <label for="ingredients">Ingrédients:</label>
         <div v-for="ingredient in ingredients" :key="ingredient.id">
           <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="formData.selectedIngredients" @change="handleCheckboxChange">
-          <label :for="ingredient.id">{{ ingredient.name }}</label>
+          <label :for="ingredient.id">{{ ingredient.name }}, +{{ingredient.prix}}$</label>
         </div>
       </div>
       <div>
         <label for="drink">Boisson:</label>
         <select id="drink" v-model="formData.drink">
-          <option v-for="drink in drinks" :value="drink.name">{{ drink.name }}</option>
+          <option v-for="drink in drinks" :value="drink.name">{{ drink.name }}, +{{drink.prix}}$</option>
         </select>
       </div>
       <button type="submit">Envoyer</button>
     </form>
   </div>
-  <div>
-    <h2>Bonjour , {{formData.name}}</h2>
-    <p>
-      vous avez choisi une salade a base de {{formData.saladBase}} avec les ingrédients suivant {{formData.selectedIngredients}} et une boisson {{formData.drink}}
-    </p>
-  </div>
+
 </template>
 
 <script>
@@ -60,7 +69,7 @@ export default {
         age: null,
         SaladBase: '',
         selectedIngredients: [],
-        drink: [],
+        drink: '',
         prix: 0,
       },
 
@@ -86,6 +95,11 @@ export default {
       ],
     };
   },
+  computed: {
+    formattedList() {
+      return this.selectedIngredients.join(', ');
+    },
+    },
 
   methods: {
     handleCheckboxChange() {
