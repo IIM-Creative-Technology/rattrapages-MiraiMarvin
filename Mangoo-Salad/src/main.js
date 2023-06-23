@@ -11,6 +11,7 @@ const store = new Vuex.Store({
         formData: {
             name: '',
             address: '',
+            Hlivraison: '',
             firstName: '',
             age: null,
             SaladBase: '',
@@ -23,6 +24,9 @@ const store = new Vuex.Store({
         updateFormData(state, formData) {
             state.formData = formData;
         },
+        updateTotalPrice(state, prix) {
+            state.formData.prix = prix;
+        }
     },
     actions: {},
     modules: {},
