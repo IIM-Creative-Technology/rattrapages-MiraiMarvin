@@ -60,10 +60,14 @@ import TheCheck from "@/components/TheCheck.vue";
       </div>
       <div class="choicegrid">
         <label for="ingredients">Ingrédients:</label>
-        <div v-for="ingredient in ingredients" :key="ingredient.id" class="radiopuce" >
+        <div v-for="ingredient in ingredients" :key="ingredient.id" class="radiopuce">
           <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="formData.selectedIngredients" @change="handleCheckboxChange">
-          <label class="lab" :for="ingredient.id">{{ ingredient.name }}, +{{ingredient.prix}}$</label>
+          <label  :for="ingredient.id">
+            {{ ingredient.name }}, +{{ ingredient.prix }}$
+          </label>
+          <span :class="getIngredientClass(ingredient.couleur)">0</span>
         </div>
+
       </div>
       <div class="one_sect">
         <label for="drink">Boisson:</label>
@@ -104,24 +108,24 @@ export default {
       ],
 
       ingredients: [
-        { id: '1', name: 'grenade', prix: 1.5 },
-        { id: '2', name: 'cheese', prix: 2.5 },
-        { id: '3', name: 'melon', prix: 4.5 },
-        { id: '4', name: 'tomate', prix: 0.5 },
-        { id: '5', name: 'oeuf', prix: 3.5 },
-        { id: '6', name: 'jambon', prix: 3.5 },
-        { id: '7', name: 'avocat', prix: 2.0 },
-        { id: '8', name: 'poivron', prix: 1.0 },
-        { id: '9', name: 'oignon rouge', prix: 0.5 },
-        { id: '10', name: 'olives', prix: 1.5 },
-        { id: '11', name: 'concombre', prix: 1.0 },
-        { id: '12', name: 'feta', prix: 2.0 },
-        { id: '13', name: 'noix', prix: 2.5 },
-        { id: '14', name: 'poulet grillé', prix: 4.0 },
-        { id: '15', name: 'maïs', prix: 1.0 },
-        { id: '16', name: 'carotte râpée', prix: 0.5 },
-        { id: '17', name: 'céleri', prix: 1.0 },
-        { id: '18', name: 'persil frais', prix: 0.5 }
+        { id: '1', name: 'grenade', prix: 1.5 ,couleur: 'bleu' },
+        { id: '2', name: 'cheese', prix: 2.5 ,couleur: 'bleu'  },
+        { id: '3', name: 'melon', prix: 4.5 ,couleur: 'bleu' },
+        { id: '4', name: 'tomate', prix: 0.5 ,couleur: 'bleu' },
+        { id: '5', name: 'oeuf', prix: 3.5 ,couleur: 'bleu' },
+        { id: '6', name: 'jambon', prix: 3.5 ,couleur: 'bleu' },
+        { id: '7', name: 'avocat', prix: 2.0 ,couleur: 'bleu' },
+        { id: '8', name: 'poivron', prix: 1.0 ,couleur: 'bleu' },
+        { id: '9', name: 'oignon rouge', prix: 0.5,couleur: 'bleu' },
+        { id: '10', name: 'olives', prix: 1.5 ,couleur: 'vert' },
+        { id: '11', name: 'concombre', prix: 1.0 ,couleur: 'vert' },
+        { id: '12', name: 'feta', prix: 2.0,couleur: 'vert' },
+        { id: '13', name: 'noix', prix: 2.5 ,couleur: 'vert' },
+        { id: '14', name: 'poulet grillé', prix: 4.0 ,couleur: 'vert'},
+        { id: '15', name: 'maïs', prix: 1.0 ,couleur: 'vert' },
+        { id: '16', name: 'carotte râpée', prix: 0.5 ,couleur: 'vert'},
+        { id: '17', name: 'céleri', prix: 1.0 ,couleur: 'vert'},
+        { id: '18', name: 'persil frais', prix: 0.5 ,couleur: 'vert'}
       ],
 
       drinks: [
@@ -169,6 +173,15 @@ export default {
     },
 
   methods: {
+    getIngredientClass(couleur) {
+      if (couleur === 'bleu') {
+        return 'blue-icon';
+      } else if (couleur === 'vert') {
+        return 'green-icon';
+      }
+
+      return 'default-icon';
+    },
     handleCheckboxChange() {
       if (this.formData.selectedIngredients.length > 4) {
         this.formData.selectedIngredients.pop();

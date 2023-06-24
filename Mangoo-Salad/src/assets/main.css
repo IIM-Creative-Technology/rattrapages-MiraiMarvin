@@ -149,8 +149,29 @@ h4{
 }
 .radiopuce{
     padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
+}
+.radiopuce label{
+    padding-left: 5px;
 }
 .lab{
     padding: 5px;
 }
+
+.blue-icon {
+    color: #3570b0;
+    width: 20px;
+    height: 20px;
+
+}
+
+.green-icon{
+
+    color: #35b037;
+    width: 20px;
+    height: 20px;
+}
+
