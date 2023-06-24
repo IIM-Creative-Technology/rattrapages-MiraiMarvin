@@ -1,29 +1,20 @@
-# Mangoo-Salad
+# Mongoo-rattrapages Vue.js
 
-This template should help get you started developing with Vue 3 in Vite.
+Voici mon projet de rattrapages sur VUE.js, pour ce
 
-## Recommended IDE Setup
+Projet, j'ai eu besoin de l'aide de :
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- stackoverflow .
+- la communauté de graven Sur discord .
+- l'extension de navigateur vue.js devtools.
+- la documentation de vue.js.
 
-## Customize configuration
+ps: Je n'ai pas su respecter la nomenclature à la lettre sans rendre obsolète le projet.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
-```sh
-npm install
+## le lien de ma video explicative :
+```
+https://www.loom.com/share/20659ed9e8604369a109adfafe94f5da
 ```
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
